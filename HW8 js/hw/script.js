@@ -13,21 +13,19 @@ for (i = array2.length - 1; i >= 0; i--) {
 
 console.warn('3. Дана строка,развенуть строку в обратном направлении.')
 let str = 'Hi I am ALex'
-function changeDirectionString(str) {
-	let newString = [];
-	for (let i = str.length - 1; i >= 0; i--) {
-		newString.push(str[i]);
+let expand = function (arr) {
+	let temp = [];
+	for (let i = arr.length - 1; i >= 0; i--) {
+		temp.push(arr[i]);
 	}
-	let result = newString + '';
-	let result2 = '';
-	for (let j = 0; j < result.length; j++) {
-		if (result[j] !== ',') {
-			result2 += result[j];
-		}
-	}
-	return console.log(result2);
+	return temp;
 }
-changeDirectionString(str);
+let expand_str = function (arr) {
+	arr = arr.split(' ');
+	arr = expand(arr);
+	return arr;
+}
+console.log(expand_str(str))
 
 
 
@@ -48,23 +46,7 @@ console.log(toUpper(str));
 
 
 
-console.warn('6. Дана строка, развернуть ее в обратном направлении')
-let string3 = 'Hi I am ALex'
-function changeDirectionString(str) {
-	let newString = [];
-	for (let i = str.length - 1; i >= 0; i--) {
-		newString.push(str[i]);
-	}
-	let result = newString + '';
-	let result2 = '';
-	for (let j = 0; j < result.length; j++) {
-		if (result[j] !== ',') {
-			result2 += result[j];
-		}
-	}
-	return console.log(result2);
-}
-changeDirectionString(string3);
+console.warn('6 идентично 3')
 
 
 console.warn('7. Дан массив,сделать все буквы с маленькой')
