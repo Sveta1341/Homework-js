@@ -1,12 +1,38 @@
-function setClock(place) {
-	let container = new Date()
-	let hour = container.getHours()
-	let minute = container.getMinutes()
-	let second = container.getSeconds()
-	if (hour < 10) { hour = "0" + hour }
-	if (minute < 10) { minute = "0" + minute }
-	if (second < 10) { second = "0" + second }
-	let timer = hour + ":" + minute + ":" + second
-	document.getElementById(place).innerHTML = timer
+let seconds = 0;
+let minute = 0;
+let hour = 0;
+let time;
+let click = true;
+let buttonStart = document.getElementById('StartButton');
+buttonStart.addEventListener('click', startTimer);
+let buttonStop = document.getElementById('StopButton');
+buttonStop.addEventListener('click', stopTimer);
+function startTimer() {
+	if (click) {
+		showTimer();
+	}
+	click = false;
 }
-let time = setInterval("setClock('showTimer')", 1000);
+function showTimer() {
+
+	time = setInterval(second, 1000);
+
+	function second() {
+		let container = new Date();
+		let times = {
+			seconds: container.getSeconds(),
+			minutes: container.getMinutes(),
+			hours: container.getHours(),
+
+		}
+		document.getElementById('timer').innerHTML = ` ${times.hours}:${times.minutes}:${times.seconds}`;
+
+	}
+}
+function stopTimer() {
+
+	clearInterval(time);
+	click = true;
+	document.getElementById('timer').innerHTML = date;
+}
+
