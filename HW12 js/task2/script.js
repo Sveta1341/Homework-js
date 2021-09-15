@@ -1,22 +1,21 @@
 function goToShop() {
-	return new Promise((resolve, reject) => {
+	let promise1 = new Promise((resolve) => {
 		let num = Math.floor(Math.random() * 10) + 1;
-		console.log(`products: ${num}`)
-		if (num < 4) {
-			reject("Too low products")
-		} else {
-			resolve(makeDinner())
-		}
+		Promise.resolve(`products: ${num}`)
 	})
 }
+promise1.then(res => {
+	if (num < 4) {
+		Promise.reject("Too low products")
+	}
+})
+	.then(res => {
+		if (num > 4) {
+			Promise.resolve(makeDinner())
+		}
+	})
 function makeDinner() {
 	setTimeout(() => {
 		console.log('Bon Appetit')
 	}, 3000);
-}
-try {
-	const promise = goToShop();
-	promise.then();
-} catch {
-	console.log(e.name + ': ' + e.message);
 }
